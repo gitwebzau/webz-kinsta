@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>webz.au — Web, Zoho, AI &amp; Internet | Sydney Small Business</title>
+<meta name="description" content="One Sydney partner for websites, Zoho, AI automation, IT support and Superloop internet. Consultation from $250."/>
+<style>
+:root{--bg:#0f0f0f;--bg2:#18181b;--card:#1e1e2e;--border:rgba(255,255,255,0.08);
+  --text:#fff;--muted:#a1a1aa;--accent:#7c3aed;--accent2:#a78bfa;--btnhov:#6d28d9;
+  --ticker-bg:#111120;--ticker-text:#a78bfa;--nav-bg:rgba(15,15,15,0.92);
+  --stat-bg:#18181b;--badge-bg:rgba(124,58,237,0.15);--badge-text:#a78bfa;
+  --input-bg:#18181b;--input-border:rgba(255,255,255,0.12);--quote-bg:#18181b}
+[data-theme="light"]{--bg:#f9f9fb;--bg2:#fff;--card:#fff;--border:rgba(0,0,0,0.08);
+  --text:#18181b;--muted:#52525b;--accent:#7c3aed;--accent2:#6d28d9;--btnhov:#5b21b6;
+  --ticker-bg:#ede9fe;--ticker-text:#5b21b6;--nav-bg:rgba(249,249,251,0.95);
+  --stat-bg:#f0eeff;--badge-bg:rgba(124,58,237,0.1);--badge-text:#5b21b6;
+  --input-bg:#fff;--input-border:rgba(0,0,0,0.12);--quote-bg:#f0eeff}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);
+  line-height:1.6;transition:background .3s,color .3s}
+a{color:inherit;text-decoration:none}
+.cn{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+/* === NAV === */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;
+  background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.ni{display:flex;align-items:center;justify-content:space-between;
+  padding:.9rem 1.5rem;max-width:1100px;margin:0 auto}
+.logo{font-size:1.1rem;font-weight:700}.logo em{color:var(--accent2);font-style:normal}
+.nl{display:flex;gap:1.75rem;list-style:none}
+.nl a{font-size:.9rem;color:var(--muted);transition:color .2s}.nl a:hover{color:var(--text)}
+.nr{display:flex;align-items:center;gap:.75rem}
+.bcta{background:var(--accent);color:#fff;border:none;padding:.5rem 1.1rem;
+  border-radius:8px;font-size:.875rem;font-weight:600;cursor:pointer;transition:background .2s}
+.bcta:hover{background:var(--btnhov)}
+.tbtn{background:none;border:1px solid var(--border);border-radius:8px;
+  padding:.45rem .65rem;cursor:pointer;color:var(--muted);font-size:.9rem;
+  transition:border-color .2s}.tbtn:hover{border-color:var(--muted);color:var(--text)}
+.ham{display:none;background:none;border:none;cursor:pointer;color:var(--text);font-size:1.4rem}
+.mm{display:none;flex-direction:column;gap:1rem;background:var(--bg2);
+  border-top:1px solid var(--border);padding:1rem 1.5rem}
+.mm a{color:var(--muted)}.mm.open{display:flex}
+/* === HERO === */
+.hero{padding:9rem 1.5rem 5rem;text-align:center}
+.hbadge{display:inline-block;background:var(--badge-bg);color:var(--badge-text);
+  border:1px solid rgba(124,58,237,.3);border-radius:20px;padding:.3rem .9rem;
+  font-size:.78rem;font-weight:600;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:.04em}
+.hero h1{font-size:clamp(1.9rem,5vw,3.3rem);font-weight:800;line-height:1.15;
+  margin-bottom:1.2rem;letter-spacing:-.02em;max-width:800px;margin-left:auto;margin-right:auto}
+.hero h1 em{color:var(--accent2);font-style:normal}
+.hero>div>p{font-size:1.05rem;color:var(--muted);max-width:600px;margin:0 auto 2.2rem}
+.hctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem}
+.bp{background:var(--accent);color:#fff;padding:.75rem 1.6rem;border-radius:10px;
+  font-weight:700;font-size:.95rem;border:none;cursor:pointer;
+  transition:background .2s,transform .15s;display:inline-block}
+.bp:hover{background:var(--btnhov);transform:translateY(-1px)}
+.bo{background:transparent;color:var(--text);padding:.75rem 1.6rem;border-radius:10px;
+  font-weight:600;font-size:.95rem;border:1px solid rgba(255,255,255,.2);
+  cursor:pointer;transition:border-color .2s;display:inline-block}
+.bo:hover{border-color:var(--accent2)}
+[data-theme="light"] .bo{border-color:rgba(0,0,0,.18)}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:750px;margin:0 auto}
+.st{background:var(--stat-bg);border:1px solid var(--border);border-radius:12px;
+  padding:1rem .75rem;text-align:center}
+.st-n{font-size:1.7rem;font-weight:800;color:var(--accent2);line-height:1}
+.st-l{font-size:.73rem;color:var(--muted);margin-top:.3rem}
+/* === TICKER === */
+.tw{overflow:hidden;background:var(--ticker-bg);padding:.65rem 0;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.ti{display:flex;width:max-content;animation:tick 28s linear infinite}
+.tw:hover .ti{animation-play-state:paused}
+.ti span{padding:0 1.5rem;color:var(--ticker-text);font-size:.8rem;font-weight:500;white-space:nowrap}
+.ti .d{color:var(--accent)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* === SECTIONS === */
+section{padding:5rem 0}
+.stag{display:inline-block;font-size:.74rem;font-weight:700;color:var(--accent2);
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem}
+.stit{font-size:clamp(1.55rem,3vw,2.25rem);font-weight:800;margin-bottom:.75rem;letter-spacing:-.02em}
+.ssub{color:var(--muted);max-width:580px;font-size:.97rem;margin-bottom:3rem}
+/* === CARDS === */
+.grid5{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:1.25rem}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;
+  padding:1.5rem;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--accent2);transform:translateY(-3px)}
+.ci{width:42px;height:42px;border-radius:10px;background:var(--badge-bg);
+  display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.25rem}
+.card h3{font-size:.98rem;font-weight:700;margin-bottom:.4rem}
+.card p{font-size:.82rem;color:var(--muted);margin-bottom:.8rem;line-height:1.55}
+.tags{display:flex;flex-wrap:wrap;gap:.3rem}
+.tag{background:var(--badge-bg);color:var(--badge-text);border-radius:6px;
+  padding:.18rem .52rem;font-size:.71rem;font-weight:600}
+.nb{background:var(--accent);color:#fff;border-radius:6px;
+  padding:.14rem .48rem;font-size:.68rem;font-weight:700;margin-left:.3rem}
+/* === AI SECTION === */
+.ag{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:3rem}
+.as{background:var(--stat-bg);border:1px solid var(--border);border-radius:12px;
+  padding:1.2rem;text-align:center}
+.as-n{font-size:1.35rem;font-weight:800;color:var(--accent2)}
+.as-l{font-size:.78rem;color:var(--muted);margin-top:.3rem}
+.ai6{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1.25rem}
+.aic ul{list-style:none;margin-top:.7rem}
+.aic ul li{font-size:.79rem;color:var(--muted);padding:.18rem 0;display:flex;gap:.4rem}
+.aic ul li::before{content:"✓";color:var(--accent2);font-weight:700;flex-shrink:0}
+.actas{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap}
+/* === PROCESS === */
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.path{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem}
+.path h3{font-size:1.02rem;font-weight:800;margin-bottom:.25rem}
+.psub{font-size:.8rem;color:var(--muted);margin-bottom:1.2rem}
+.path ul{list-style:none;margin-bottom:1.4rem}
+.path ul li{font-size:.81rem;color:var(--muted);padding:.18rem 0;display:flex;gap:.5rem}
+.path ul li::before{content:"·";color:var(--accent2);font-weight:900}
+.steps{display:flex;flex-direction:column;gap:.7rem}
+.step{display:flex;gap:1rem;align-items:flex-start}
+.snum{min-width:35px;height:35px;border-radius:10px;background:var(--badge-bg);
+  color:var(--accent2);display:flex;align-items:center;justify-content:center;
+  font-size:.72rem;font-weight:800;border:1px solid rgba(124,58,237,.25);flex-shrink:0}
+.sc h4{font-size:.86rem;font-weight:700;margin-bottom:.12rem}
+.sc p{font-size:.77rem;color:var(--muted)}
+/* === WHY / PRICING / TESTI === */
+.wg{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1.25rem}
+.wn{font-size:1.75rem;font-weight:900;color:var(--accent2);opacity:.4;line-height:1;margin-bottom:.5rem}
+.prig{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1.25rem}
+.pric{background:var(--card);border:1px solid var(--border);border-radius:20px;
+  padding:1.75rem;position:relative;transition:transform .2s}
+.pric:hover{transform:translateY(-3px)}
+.pric.pop{border-color:var(--accent);border-width:2px}
+.pbadge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:var(--accent);color:#fff;border-radius:20px;padding:.23rem .85rem;
+  font-size:.7rem;font-weight:700;white-space:nowrap}
+.ptag{font-size:.73rem;color:var(--muted);margin-bottom:.3rem;font-weight:600}
+.price{font-size:2.1rem;font-weight:900;line-height:1}
+.price span{font-size:.88rem;color:var(--muted);font-weight:400}
+.pric>p{font-size:.8rem;color:var(--muted);margin:.6rem 0 1rem}
+.pf{list-style:none;margin-bottom:1.5rem}
+.pf li{font-size:.81rem;color:var(--muted);padding:.28rem 0;
+  border-bottom:1px solid var(--border);display:flex;gap:.5rem}
+.pf li:last-child{border-bottom:none}
+.pf li::before{content:"✓";color:var(--accent2);font-weight:700;flex-shrink:0}
+.bprice{width:100%;background:var(--badge-bg);color:var(--accent2);
+  border:1px solid rgba(124,58,237,.3);border-radius:10px;padding:.68rem;
+  font-weight:700;font-size:.88rem;cursor:pointer;transition:background .2s}
+.bprice:hover,.pric.pop .bprice{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tg{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:1.25rem}
+.tc{background:var(--quote-bg);border:1px solid var(--border);border-radius:16px;padding:1.5rem}
+.stars{color:#f59e0b;margin-bottom:.75rem}
+.tc blockquote{font-size:.88rem;font-style:italic;margin-bottom:1rem;line-height:1.6}
+.ta strong{display:block;font-weight:600}.ta span{font-size:.78rem;color:var(--muted)}
+/* === CONTACT === */
+.csg{display:grid;grid-template-columns:1fr 1.5fr;gap:3rem;align-items:flex-start}
+.ci2 h2{font-size:1.55rem;font-weight:800;margin-bottom:.75rem}
+.ci2>p{color:var(--muted);margin-bottom:2rem;font-size:.93rem}
+.cd{display:flex;gap:.75rem;align-items:flex-start;margin-bottom:1rem}
+.cico{width:36px;height:36px;border-radius:9px;background:var(--badge-bg);
+  display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.cd strong{display:block;font-weight:600;margin-bottom:.1rem}
+.cd span{font-size:.85rem;color:var(--muted)}
+.fw{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem}
+.fg{margin-bottom:1rem}
+.fg label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:.33rem;font-weight:500}
+.fg input,.fg select,.fg textarea{width:100%;background:var(--input-bg);
+  border:1px solid var(--input-border);border-radius:9px;padding:.63rem .88rem;
+  color:var(--text);font-size:.88rem;font-family:inherit;outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--accent2)}
+.fg textarea{resize:vertical;min-height:100px}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.bsub{width:100%;background:var(--accent);color:#fff;border:none;border-radius:10px;
+  padding:.78rem;font-size:.97rem;font-weight:700;cursor:pointer;
+  transition:background .2s;margin-top:.5rem}
+.bsub:hover{background:var(--btnhov)}
+.fok{display:none;background:rgba(29,158,117,.15);border:1px solid rgba(29,158,117,.4);
+  color:#1d9e75;border-radius:10px;padding:1rem;text-align:center;font-weight:600;margin-top:1rem}
+/* === FOOTER === */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 1.5rem}
+.fi{max-width:1100px;margin:0 auto;display:flex;align-items:center;
+  justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.fl{font-size:1.05rem;font-weight:800}.fl em{color:var(--accent2);font-style:normal}
+.flinks{display:flex;gap:1.5rem}
+.flinks a{font-size:.83rem;color:var(--muted);transition:color .2s}.flinks a:hover{color:var(--text)}
+.fcp{font-size:.76rem;color:var(--muted);width:100%;text-align:center;margin-top:.5rem}
+/* === RESPONSIVE === */
+@media(max-width:768px){
+  .nl{display:none!important}.ham{display:block!important}
+  .hero h1{font-size:1.85rem}.sg{grid-template-columns:repeat(2,1fr)}
+  .pg,.csg{grid-template-columns:1fr}.ag{grid-template-columns:1fr}.fr{grid-template-columns:1fr}
+  .fi{flex-direction:column;text-align:center}.flinks{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="ni">
+    <a href="#" class="logo"><em>w</em> webz.au</a>
+    <ul class="nl">
+      <li><a href="#services">Services</a></li><li><a href="#ai">AI</a></li>
+      <li><a href="#process">Process</a></li><li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nr">
+      <button class="tbtn" onclick="toggleTheme()" title="Switch dark/light mode"><span id="ti">☀️</span></button>
+      <a href="#contact"><button class="bcta">Book consult</button></a>
+      <button class="ham" onclick="toggleMenu()">&#9776;</button>
+    </div>
+  </div>
+  <div class="mm" id="mm">
+    <a href="#services" onclick="closeMM()">Services</a><a href="#ai" onclick="closeMM()">AI</a>
+    <a href="#process" onclick="closeMM()">Process</a><a href="#pricing" onclick="closeMM()">Pricing</a>
+    <a href="#contact" onclick="closeMM()">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="cn">
+    <div class="hbadge">Sydney's small business tech partner — now with AI</div>
+    <h1>Websites, Zoho, AI automation,<br/><em>IT support &amp; fast internet.</em></h1>
+    <p>One local partner for everything your business runs on. We build, automate and support — so you can focus on customers, not vendors.</p>
+    <div class="hctas">
+      <a href="#contact" class="bp">Book a 60-min consult — $250</a>
+      <a href="#services" class="bo">Explore services</a>
+    </div>
+    <div class="sg">
+      <div class="st"><div class="st-n">20+</div><div class="st-l">Years Fortune 500 experience</div></div>
+      <div class="st"><div class="st-n">10x</div><div class="st-l">Efficiency in 30 days</div></div>
+      <div class="st"><div class="st-n">1</div><div class="st-l">Local Sydney contact</div></div>
+      <div class="st"><div class="st-n">99.9%</div><div class="st-l">Superloop uptime</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="tw" aria-hidden="true">
+  <div class="ti">
+    <span>Zoho Authorised Reseller</span><span class="d">·</span>
+    <span>Superloop Authorised Partner</span><span class="d">·</span>
+    <span>NVIDIA Inception aligned</span><span class="d">·</span>
+    <span>Sydney-based team</span><span class="d">·</span>
+    <span>No lock-in contracts</span><span class="d">·</span>
+    <span>Plain English support</span><span class="d">·</span>
+    <span>Zoho Authorised Reseller</span><span class="d">·</span>
+    <span>Superloop Authorised Partner</span><span class="d">·</span>
+    <span>NVIDIA Inception aligned</span><span class="d">·</span>
+    <span>Sydney-based team</span><span class="d">·</span>
+    <span>No lock-in contracts</span><span class="d">·</span>
+    <span>Plain English support</span><span class="d">·</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="cn">
+    <p class="stag">What we offer</p>
+    <h2 class="stit">Five services. One local partner.</h2>
+    <p class="ssub">Stop juggling vendors. webz.au handles your entire digital stack — from your website and software to your AI workflows, internet and IT helpdesk.</p>
+    <div class="grid5">
+      <div class="card"><div class="ci">🌐</div><h3>Web Development</h3><p>Mobile-first, SEO-ready websites that turn visitors into customers.</p><div class="tags"><span class="tag">Business Sites</span><span class="tag">Landing Pages</span><span class="tag">E-commerce</span><span class="tag">Zoho Sites</span><span class="tag">WordPress</span></div></div>
+      <div class="card"><div class="ci">⚡</div><h3>Zoho Products</h3><p>Buy Zoho at the best price through an authorised reseller.</p><div class="tags"><span class="tag">Zoho One</span><span class="tag">CRM</span><span class="tag">Books</span><span class="tag">Desk</span><span class="tag">Mail</span></div></div>
+      <div class="card"><div class="ci">🤖</div><h3>AI Automation<span class="nb">New</span></h3><p>Practical AI that saves time and reduces costs.</p><div class="tags"><span class="tag">Voice Agents</span><span class="tag">Doc AI</span><span class="tag">Automations</span><span class="tag">Dashboards</span></div></div>
+      <div class="card"><div class="ci">🛠️</div><h3>IT Support</h3><p>Friendly, plain-English IT for your team. Remote helpdesk + on-site.</p><div class="tags"><span class="tag">Helpdesk</span><span class="tag">Hardware</span><span class="tag">Networks</span><span class="tag">M365</span><span class="tag">Security</span></div></div>
+      <div class="card"><div class="ci">📡</div><h3>Superloop Internet</h3><p>High-speed NBN and business fibre. We handle order, setup, and faults.</p><div class="tags"><span class="tag">Business NBN</span><span class="tag">Fibre FTTP</span><span class="tag">1Gbps</span><span class="tag">99.9% SLA</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AI -->
+<section id="ai" style="background:var(--bg2)">
+  <div class="cn">
+    <p class="stag">AI Solutions &amp; Capabilities</p>
+    <h2 class="stit">Practical AI that saves time, reduces costs, scales with you.</h2>
+    <div class="ag">
+      <div class="as"><div class="as-n">Time ↓</div><div class="as-l">saved per week</div></div>
+      <div class="as"><div class="as-n">Cost ↓</div><div class="as-l">in operations</div></div>
+      <div class="as"><div class="as-n">Speed ↑</div><div class="as-l">faster decisions</div></div>
+    </div>
+    <div class="ai6">
+      <div class="card aic"><div class="ci">🎙️</div><h3>Voice Agent Starter</h3><p>Multilingual chat + voice assistants for support and ops.</p><ul><li>Faster answers, fewer tickets</li><li>Integrates with your tools</li></ul></div>
+      <div class="card aic"><div class="ci">📄</div><h3>Document Intelligence</h3><p>Extract, validate and route invoices, forms and contracts.</p><ul><li>Reduce manual entry</li><li>Human-in-the-loop &amp; audit trails</li></ul></div>
+      <div class="card aic"><div class="ci">⚙️</div><h3>Automation Studio</h3><p>GenAI workflows for summaries, emails and reports.</p><ul><li>Consistent outputs at speed</li><li>Approvals &amp; versioning</li></ul></div>
+      <div class="card aic"><div class="ci">📊</div><h3>Predict &amp; Prevent</h3><p>Forecasts, anomaly detection and proactive alerts.</p><ul><li>Fewer surprises</li><li>Better planning</li></ul></div>
+      <div class="card aic"><div class="ci">📈</div><h3>Insight Dashboards</h3><p>KPIs, trends and drill-downs for faster decisions.</p><ul><li>Role-based access</li><li>One source of truth</li></ul></div>
+      <div class="card aic"><div class="ci">🔁</div><h3>Run &amp; Retrain (MLOps)</h3><p>Monitor, govern and continuously improve your models.</p><ul><li>Reliability &amp; compliance</li><li>Cost control</li></ul></div>
+    </div>
+    <div class="actas">
+      <a href="#contact" class="bp">Book a Readiness Call</a>
+      <a href="#process" class="bo">See how we work</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="cn">
+    <p class="stag">How we drive impact</p>
+    <h2 class="stit">Two paths. One outcome — measurable wins.</h2>
+    <div class="pg">
+      <div class="path">
+        <div style="margin-bottom:.5rem"><span style="background:var(--badge-bg);color:var(--accent2);border-radius:6px;padding:.15rem .5rem;font-size:.7rem;font-weight:700">AI Partner Path</span></div>
+        <h3>Make your team faster without hiring more people.</h3>
+        <div class="psub">4-step engagement, low risk, fast ROI.</div>
+        <ul><li>Reporting in hours, not days</li><li>Fewer status meetings, faster decisions</li><li>Cleaner handovers, lower rework</li><li>Small, safe automations with logs</li></ul>
+        <div class="steps">
+          <div class="step"><div class="snum">01</div><div class="sc"><h4>Free 60-min Consult</h4><p>Pick one workflow, size the ROI.</p></div></div>
+          <div class="step"><div class="snum">02</div><div class="sc"><h4>1-Week AI Ops Audit</h4><p>Baseline, map, 30-day plan.</p></div></div>
+          <div class="step"><div class="snum">03</div><div class="sc"><h4>10-Day Build Sprint</h4><p>Ship one working automation with acceptance tests.</p></div></div>
+          <div class="step"><div class="snum">04</div><div class="sc"><h4>Partner Plan (optional)</h4><p>Monthly improvements, agreed cadence &amp; SLAs.</p></div></div>
+        </div>
+      </div>
+      <div class="path">
+        <div style="margin-bottom:.5rem"><span style="background:var(--badge-bg);color:var(--accent2);border-radius:6px;padding:.15rem .5rem;font-size:.7rem;font-weight:700">AI Product Dev Path</span></div>
+        <h3>Turn validated ideas into working MVPs — fast, safe, scalable.</h3>
+        <div class="psub">For product teams building AI-first features.</div>
+        <ul><li>Feasibility first</li><li>MVP in 6–8 weeks</li><li>30–45 day stability warranty</li><li>Scale with analytics &amp; governance</li></ul>
+        <div class="steps">
+          <div class="step"><div class="snum">01</div><div class="sc"><h4>Feasibility Sprint</h4><p>2 weeks — data checks + clickable prototype.</p></div></div>
+          <div class="step"><div class="snum">02</div><div class="sc"><h4>MVP Build</h4><p>6–8 weeks. Only what proves value.</p></div></div>
+          <div class="step"><div class="snum">03</div><div class="sc"><h4>Stability Warranty</h4><p>30–45 days post go-live.</p></div></div>
+          <div class="step"><div class="snum">04</div><div class="sc"><h4>Scale</h4><p>Optional roadmap, analytics &amp; governance.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section style="background:var(--bg2)">
+  <div class="cn">
+    <p class="stag">Why webz.au</p>
+    <h2 class="stit">Everything under one roof.</h2>
+    <div class="wg">
+      <div class="card"><div class="wn">01</div><h3>One contact</h3><p>Web, Zoho, AI, IT, internet — one number. No more 'not my department.'</p></div>
+      <div class="card"><div class="wn">02</div><h3>Local Sydney team</h3><p>Real people, fast responses. We can visit your office.</p></div>
+      <div class="card"><div class="wn">03</div><h3>Plain English</h3><p>No jargon. We explain what you need — and what you don't.</p></div>
+      <div class="card"><div class="wn">04</div><h3>Fair pricing</h3><p>Transparent quotes. No surprise invoices, no lock-in.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="cn">
+    <p class="stag">Pricing</p>
+    <h2 class="stit">Simple, $250 consultations.</h2>
+    <p class="ssub">One focused 60-minute session — fully credited toward any engagement. No lock-in. No surprises.</p>
+    <div class="prig">
+      <div class="pric">
+        <div class="ptag">Starter</div><h3>IT &amp; Internet Check-Up</h3>
+        <div class="price">$250<span>/ session</span></div>
+        <p>Fast wins — internet upgrade, IT issues, or a quick Zoho health check.</p>
+        <ul class="pf"><li>60-min consultation</li><li>Network &amp; IT assessment</li><li>Superloop review</li><li>$250 credited to project</li></ul>
+        <a href="#contact"><button class="bprice">Book now</button></a>
+      </div>
+      <div class="pric pop">
+        <div class="pbadge">⭐ Most Popular</div>
+        <div class="ptag">Most Popular</div><h3>Zoho + AI Strategy</h3>
+        <div class="price">$250<span>/ session</span></div>
+        <p>Map Zoho and AI automation to your workflows. CRM, Books, Desk + GenAI ops.</p>
+        <ul class="pf"><li>60-min expert consult</li><li>Workflow &amp; integration mapping</li><li>AI automation roadmap</li><li>$250 credited to project</li></ul>
+        <a href="#contact"><button class="bprice">Book now</button></a>
+      </div>
+      <div class="pric">
+        <div class="ptag">Website</div><h3>Web &amp; Digital Discovery</h3>
+        <div class="price">$250<span>/ session</span></div>
+        <p>For new websites or digital overhauls. Scope, plan, and platform recommendation.</p>
+        <ul class="pf"><li>60-min consultation</li><li>Scope &amp; requirements</li><li>Platform recommendation</li><li>$250 credited to project</li></ul>
+        <a href="#contact"><button class="bprice">Book now</button></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background:var(--bg2)">
+  <div class="cn">
+    <p class="stag">Client stories</p>
+    <h2 class="stit">Results Sydney businesses rely on.</h2>
+    <div class="tg">
+      <div class="tc"><div class="stars">★★★★★</div><blockquote>"webz.au built our website, set up Zoho CRM, and sorted our Superloop internet all in one month. Never dealt with anyone so straightforward."</blockquote><div class="ta"><strong>Sarah M.</strong><span>Owner, Sydney Cleaning Co.</span></div></div>
+      <div class="tc"><div class="stars">★★★★★</div><blockquote>"The AI document workflow they shipped in 10 days saves us a full day per week. Reporting in hours, not days."</blockquote><div class="ta"><strong>Andrew L.</strong><span>Operations Lead, Logistics SMB</span></div></div>
+      <div class="tc"><div class="stars">★★★★★</div><blockquote>"One call and one week later we had Superloop fibre connected. The Zoho Books setup alone saved us three hours a week."</blockquote><div class="ta"><strong>Priya K.</strong><span>Founder, Bloom Wellness</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--bg2)">
+  <div class="cn">
+    <div class="csg">
+      <div class="ci2">
+        <p class="stag">Get in touch</p>
+        <h2>One hour with us.<br/>1–2 wins you can ship right away.</h2>
+        <p>Book a 60-minute consultation for $250 AUD — credited to your project. No jargon, no pressure.</p>
+        <div class="cd"><div class="cico">✉️</div><div><strong>Email</strong><span>support@webz.au</span></div></div>
+        <div class="cd"><div class="cico">📞</div><div><strong>Phone</strong><span>+61 404 727 148</span></div></div>
+        <div class="cd"><div class="cico">📍</div><div><strong>Location</strong><span>Sydney, NSW, Australia</span></div></div>
+        <div class="cd"><div class="cico">🕐</div><div><strong>Hours</strong><span>Mon–Fri 8am–6pm AEST</span></div></div>
+      </div>
+      <div class="fw">
+        <form onsubmit="submitF(event)">
+          <div class="fr">
+            <div class="fg"><label>Your name</label><input type="text" required placeholder="Jane Smith"/></div>
+            <div class="fg"><label>Business</label><input type="text" placeholder="Acme Pty Ltd"/></div>
+          </div>
+          <div class="fr">
+            <div class="fg"><label>Email</label><input type="email" required placeholder="jane@company.com.au"/></div>
+            <div class="fg"><label>Phone</label><input type="tel" placeholder="+61 4xx xxx xxx"/></div>
+          </div>
+          <div class="fg"><label>I'm interested in</label>
+            <select><option value="">Select a service...</option>
+              <option>Web Development</option><option>Zoho Products &amp; Setup</option>
+              <option>AI Automation</option><option>IT Support</option>
+              <option>Superloop Internet</option><option>All of the above</option>
+            </select>
+          </div>
+          <div class="fg"><label>Message</label><textarea placeholder="Tell us about your project..."></textarea></div>
+          <button class="bsub" type="submit">Send message →</button>
+          <div class="fok" id="fok">✅ Message sent! We'll be in touch within one business day.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fi">
+    <div class="fl"><em>w</em> webz.au</div>
+    <div class="flinks"><a href="#services">Services</a><a href="#ai">AI</a><a href="#contact">Contact</a></div>
+    <div class="fcp">© 2026 webz.au — Sydney, NSW, Australia. ABN: XX XXX XXX XXX</div>
+  </div>
+</footer>
+
+<script>
+function toggleTheme(){
+  var h=document.documentElement,d=h.getAttribute('data-theme')==='dark';
+  h.setAttribute('data-theme',d?'light':'dark');
+  document.getElementById('ti').textContent=d?'🌙':'☀️';
+  try{localStorage.setItem('wt',d?'light':'dark');}catch(e){}
+}
+function toggleMenu(){document.getElementById('mm').classList.toggle('open');}
+function closeMM(){document.getElementById('mm').classList.remove('open');}
+function submitF(e){
+  e.preventDefault();
+  var s=document.getElementById('fok');s.style.display='block';e.target.reset();
+  setTimeout(function(){s.style.display='none';},5000);
+}
+(function(){
+  try{
+    var sv=localStorage.getItem('wt'),dk=window.matchMedia('(prefers-color-scheme:dark)').matches;
+    var t=sv||(dk?'dark':'light');
+    document.documentElement.setAttribute('data-theme',t);
+    var ic=document.getElementById('ti');
+    if(ic)ic.textContent=t==='dark'?'☀️':'🌙';
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
