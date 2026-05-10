@@ -188,7 +188,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 1.
   .fi{flex-direction:column;text-align:center}.flinks{justify-content:center}
 }
 </style>
+
+<!-- Zoho bookings --> 
+</style>
+<script src="https://bookings.nimbuspop.com/assets/embed.js"></script>
 </head>
+
 <body>
 
 <!-- NAV -->
@@ -202,7 +207,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 1.
     </ul>
     <div class="nr">
       <button class="tbtn" onclick="toggleTheme()" title="Switch dark/light mode"><span id="ti">☀️</span></button>
-      <a href="#contact"><button class="bcta">Book consult</button></a>
+      <!--  <a href="#contact"><button class="bcta">Book consult</button></a> -->
+      <a href="#" id="nav-book"><button class="bcta">Book consult</button></a>
       <button class="ham" onclick="toggleMenu()">&#9776;</button>
     </div>
   </div>
@@ -220,7 +226,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 1.
     <h1>Websites, Zoho, AI automation,<br/><em>IT support &amp; fast internet.</em></h1>
     <p>One local partner for everything your business runs on. We build, automate and support — so you can focus on customers, not vendors.</p>
     <div class="hctas">
-      <a href="#contact" class="bp">Book a 60-min consult — $250</a>
+      <!-- <a href="#contact" class="bp">Book a 60-min consult — $250</a>
+      <a href="#services" class="bo">Explore services</a> -->
+      <a href="#" id="hero-book" class="bp">Book a 60-min consult — $250</a>
       <a href="#services" class="bo">Explore services</a>
     </div>
     <div class="sg">
@@ -285,7 +293,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 1.
       <div class="card aic"><div class="ci">🔁</div><h3>Run &amp; Retrain (MLOps)</h3><p>Monitor, govern and continuously improve your models.</p><ul><li>Reliability &amp; compliance</li><li>Cost control</li></ul></div>
     </div>
     <div class="actas">
-      <a href="#contact" class="bp">Book a Readiness Call</a>
+      <!-- <a href="#contact" class="bp">Book a Readiness Call</a> --> 
+      <a href="#" id="ai-book" class="bp">Book a Readiness Call</a> 
       <a href="#process" class="bo">See how we work</a>
     </div>
   </div>
@@ -351,7 +360,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 1.
         <div class="price">$250<span>/ session</span></div>
         <p>Fast wins — internet upgrade, IT issues, or a quick Zoho health check.</p>
         <ul class="pf"><li>60-min consultation</li><li>Network &amp; IT assessment</li><li>Superloop review</li><li>$250 credited to project</li></ul>
-        <a href="#contact"><button class="bprice">Book now</button></a>
+        <!-- <a href="#contact"><button class="bprice">Book now</button></a> -->
+        <!-- Pricing card 1 — IT & Internet -->
+        <a href="#" id="price-book-1"><button class="bprice">Book now</button></a> 
       </div>
       <div class="pric pop">
         <div class="pbadge">⭐ Most Popular</div>
@@ -359,14 +370,18 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 1.
         <div class="price">$250<span>/ session</span></div>
         <p>Map Zoho and AI automation to your workflows. CRM, Books, Desk + GenAI ops.</p>
         <ul class="pf"><li>60-min expert consult</li><li>Workflow &amp; integration mapping</li><li>AI automation roadmap</li><li>$250 credited to project</li></ul>
-        <a href="#contact"><button class="bprice">Book now</button></a>
+        <!-- <a href="#contact"><button class="bprice">Book now</button></a>  -->
+        <!-- Pricing card 2 — Zoho + AI (Most Popular) -->
+        <a href="#" id="price-book-2"><button class="bprice">Book now</button></a>
       </div>
       <div class="pric">
         <div class="ptag">Website</div><h3>Web &amp; Digital Discovery</h3>
         <div class="price">$250<span>/ session</span></div>
         <p>For new websites or digital overhauls. Scope, plan, and platform recommendation.</p>
         <ul class="pf"><li>60-min consultation</li><li>Scope &amp; requirements</li><li>Platform recommendation</li><li>$250 credited to project</li></ul>
-        <a href="#contact"><button class="bprice">Book now</button></a>
+        <!-- <a href="#contact"><button class="bprice">Book now</button></a> --> 
+        <!-- Pricing card 3 — Web & Digital -->
+        <a href="#" id="price-book-3"><button class="bprice">Book now</button></a>
       </div>
     </div>
   </div>
@@ -433,6 +448,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 1.
   </div>
 </footer>
 
+<!----
 <script>
 function toggleTheme(){
   var h=document.documentElement,d=h.getAttribute('data-theme')==='dark';
@@ -456,6 +472,54 @@ function submitF(e){
     if(ic)ic.textContent=t==='dark'?'☀️':'🌙';
   }catch(e){}
 })();
+</script> -->
+
+<script>
+/* ── Theme toggle ── */
+function toggleTheme(){
+  var h=document.documentElement,d=h.getAttribute('data-theme')==='dark';
+  h.setAttribute('data-theme',d?'light':'dark');
+  document.getElementById('ti').textContent=d?'🌙':'☀️';
+  try{localStorage.setItem('wt',d?'light':'dark');}catch(e){}
+}
+function toggleMenu(){document.getElementById('mm').classList.toggle('open');}
+function closeMM(){document.getElementById('mm').classList.remove('open');}
+function submitF(e){
+  e.preventDefault();
+  var s=document.getElementById('fok');s.style.display='block';e.target.reset();
+  setTimeout(function(){s.style.display='none';},5000);
+}
+(function(){
+  try{
+    var sv=localStorage.getItem('wt'),dk=window.matchMedia('(prefers-color-scheme:dark)').matches;
+    var t=sv||(dk?'dark':'light');
+    document.documentElement.setAttribute('data-theme',t);
+    var ic=document.getElementById('ti');
+    if(ic)ic.textContent=t==='dark'?'☀️':'🌙';
+  }catch(e){}
+})();
+
+/* ── Zoho Bookings modal (shared URL for all buttons) ── */
+var bookingOpts = {
+  url: "https://webzyourtechpartner.zohobookings.com.au/portal-embed#/32604000000051054",
+  width: "90%",
+  height: "85%"
+};
+
+var bookingIds = [
+  'nav-book',
+  'hero-book',
+  'ai-book',
+  'price-book-1',
+  'price-book-2',
+  'price-book-3'
+];
+
+bookingIds.forEach(function(id){
+  var el = document.getElementById(id);
+  if(el) el.onclick = Bookings.linkModal(bookingOpts);
+});
 </script>
+
 </body>
 </html>
