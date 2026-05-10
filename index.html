@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
@@ -28,16 +28,8 @@
   Footer:  .fi = footer inner  .fl = footer logo  .flinks = footer links  .fcp = footer copyright
 */
 
-/* === CSS DESIGN TOKENS ===
-   Two themes defined here: dark (default) and light.
-   JavaScript toggles `data-theme="light"` on <html> to switch.
-   All colours are referenced by var(--token) so nothing is hardcoded. */
-:root{--bg:#0f0f0f;--bg2:#18181b;--card:#1e1e2e;--border:rgba(255,255,255,0.08);
-  --text:#fff;--muted:#a1a1aa;--accent:#7c3aed;--accent2:#a78bfa;--btnhov:#6d28d9;
-  --ticker-bg:#111120;--ticker-text:#a78bfa;--nav-bg:rgba(15,15,15,0.92);
-  --stat-bg:#18181b;--badge-bg:rgba(124,58,237,0.15);--badge-text:#a78bfa;
-  --input-bg:#18181b;--input-border:rgba(255,255,255,0.12);--quote-bg:#18181b}
-[data-theme="light"]{--bg:#f9f9fb;--bg2:#fff;--card:#fff;--border:rgba(0,0,0,0.08);
+/* === CSS DESIGN TOKENS === */
+:root{--bg:#f9f9fb;--bg2:#fff;--card:#fff;--border:rgba(0,0,0,0.08);
   --text:#18181b;--muted:#52525b;--accent:#7c3aed;--accent2:#6d28d9;--btnhov:#5b21b6;
   --ticker-bg:#ede9fe;--ticker-text:#5b21b6;--nav-bg:rgba(249,249,251,0.95);
   --stat-bg:#f0eeff;--badge-bg:rgba(124,58,237,0.1);--badge-text:#5b21b6;
@@ -64,9 +56,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;
 .bcta{background:var(--accent);color:#fff;border:none;padding:.5rem 1.1rem;
   border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;transition:background .2s}
 .bcta:hover{background:var(--btnhov)}
-.tbtn{background:none;border:1px solid var(--border);border-radius:8px;  /* theme toggle btn */
-  padding:.45rem .65rem;cursor:pointer;color:var(--muted);font-size:1rem;
-  transition:border-color .2s}.tbtn:hover{border-color:var(--muted);color:var(--text)}
 .ham{display:none;background:none;border:none;cursor:pointer;color:var(--text);font-size:1.4rem}  /* hamburger — hidden on desktop, shown ≤768 px */
 /* .mm — mobile dropdown menu; toggled by JS via .open class */
 .mm{display:none;flex-direction:column;gap:1rem;background:var(--bg2);
@@ -94,7 +83,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;
   font-weight:600;font-size:1.08rem;border:1px solid rgba(255,255,255,.2);
   cursor:pointer;transition:border-color .2s;display:inline-block}
 .bo:hover{border-color:var(--accent2)}
-[data-theme="light"] .bo{border-color:rgba(0,0,0,.18)}
+.bo{border-color:rgba(0,0,0,.18)}
 /* .sg/.st — stats grid (4-col) and individual stat tile */
 .sg{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:750px;margin:0 auto}
 .st{background:var(--stat-bg);border:1px solid var(--border);border-radius:12px;
@@ -257,73 +246,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 1.
   .pg,.csg{grid-template-columns:1fr}.ag{grid-template-columns:1fr}.fr{grid-template-columns:1fr}
   .fi{flex-direction:column;text-align:center}.flinks{justify-content:center}
 }
-/* === DARK MODE HEADING COLOURS ===
-   Pure white headings on near-black backgrounds look flat and blend together.
-   A bright lavender (#ddd6fe) keeps contrast high while making headings
-   visually distinct from body text and on-brand with the purple accent. */
-[data-theme="dark"] h1,
-[data-theme="dark"] h2,
-[data-theme="dark"] .stit,
-[data-theme="dark"] .path h3,
-[data-theme="dark"] .ci2 h2 {
-  color: #ddd6fe;
-}
-
 /* === BIGIN ROOT FONT-SIZE FIX ===
    The Bigin embed's bundled CSS sets :root/html { font-size:10px } which
    shrinks every rem-based size on the page. This !important override restores
    the standard 16 px root so all our rem values render at intended sizes. */
 html{font-size:16px!important}
 
-/* === BIGIN FORM DARK MODE ===
-   Zoho Bigin embeds its own light-mode stylesheet; these overrides force the form
-   fields/dropdowns to use our design tokens when dark mode is active. */
-[data-theme="dark"] .wf-parent{
-  background-color:var(--card)!important}
-[data-theme="dark"] .wf-wrapper{
-  background-color:var(--card)!important;
-  color:var(--text)!important;
-  box-shadow:0 0 0 1px var(--border)!important}
-[data-theme="dark"] .wf-header{
-  color:var(--text)!important}
-[data-theme="dark"] .wf-label{
-  color:var(--muted)!important}
-[data-theme="dark"] .wf-field-input,
-[data-theme="dark"] .wf-field-dropdown,
-[data-theme="dark"] .wf-field-item,
-[data-theme="dark"] .dropdown-input{
-  background-color:var(--input-bg)!important;
-  border-color:var(--input-border)!important;
-  color:var(--text)!important}
-[data-theme="dark"] .wf-field-input:focus{
-  border-color:var(--accent2)!important}
-[data-theme="dark"] select{
-  background-color:var(--input-bg)!important;
-  color:var(--text)!important;
-  background-image:url("data:image/svg+xml;utf8,<svg fill='white' height='34' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>")!important}
-[data-theme="dark"] .wf-text-area-input{
-  background-color:var(--input-bg)!important;
-  color:var(--text)!important}
-[data-theme="dark"] .wf-spam-content-box{
-  border-color:var(--border)!important}
-[data-theme="dark"] .wf-spam-content-box-inner{
-  background-color:var(--bg2)!important;
-  color:var(--muted)!important}
-[data-theme="dark"] .wf-spam-content-note{
-  color:var(--text)!important}
-[data-theme="dark"] .multi-tag{
-  background-color:rgba(124,58,237,.25)!important;
-  color:var(--accent2)!important}
-[data-theme="dark"] .dropdown-menu{
-  background-color:var(--bg2)!important;
-  border-color:var(--border)!important}
-[data-theme="dark"] .option{
-  color:var(--text)!important;
-  border-color:var(--border)!important}
-[data-theme="dark"] .option:hover{
-  background-color:var(--badge-bg)!important}
-[data-theme="dark"] .selected-options{
-  background-color:var(--input-bg)!important}
 
 </style>
 
@@ -350,7 +278,6 @@ html{font-size:16px!important}
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nr">
-      <button class="tbtn" onclick="toggleTheme()" title="Switch dark/light mode"><span id="ti">☀️</span></button>
       <!-- Booking buttons use id="nav-book" (and hero-book, ai-book, price-book-*) instead of
            href="#contact" so the Zoho Bookings modal can be attached via JS (see bottom of file). -->
       <a href="#" id="nav-book"><button class="bcta">Book consult</button></a>
@@ -2172,31 +2099,9 @@ input[type='file']::file-selector-button, input[type='file']::-webkit-file-uploa
 </footer>
 
 <script>
-/* ── Theme toggle ──
-   Flips data-theme on <html> between "dark" and "light", updates the icon,
-   and persists the choice to localStorage key "wt". */
-function toggleTheme(){
-  var h=document.documentElement,d=h.getAttribute('data-theme')==='dark';
-  h.setAttribute('data-theme',d?'light':'dark');
-  document.getElementById('ti').textContent=d?'🌙':'☀️';
-  try{localStorage.setItem('wt',d?'light':'dark');}catch(e){}
-}
-
 /* Mobile nav open/close — toggling .open on #mm shows the flex dropdown */
 function toggleMenu(){document.getElementById('mm').classList.toggle('open');}
 function closeMM(){document.getElementById('mm').classList.remove('open');}
-
-/* IIFE: apply saved theme preference before first paint to avoid flash.
-   Priority: localStorage "wt" → OS preference → default dark. */
-(function(){
-  try{
-    var sv=localStorage.getItem('wt'),dk=window.matchMedia('(prefers-color-scheme:dark)').matches;
-    var t=sv||(dk?'dark':'light');
-    document.documentElement.setAttribute('data-theme',t);
-    var ic=document.getElementById('ti');
-    if(ic)ic.textContent=t==='dark'?'☀️':'🌙';
-  }catch(e){}
-})();
 
 /* ── Zoho Bookings modal ──
    Bookings.linkModal() is provided by the embed.js script loaded in <head>.
