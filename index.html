@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>webz.au — Web, Zoho, AI &amp; Internet | Sydney Small Business</title>
 <meta name="description" content="One Sydney partner for websites, Zoho, AI automation, IT support and Superloop internet. Consultation from $250."/>
+<!-- Favicon + Apple Touch Icon using the brand logo PNG -->
+<link rel="icon" type="image/png" href="assets/webz-logo.png"/>
+<link rel="apple-touch-icon" href="assets/webz-logo.png"/>
 <style>
 /*
   CSS CLASS NAMING REFERENCE (abbreviated names used throughout)
@@ -55,14 +58,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;
   padding:.9rem 1.5rem;max-width:1100px;margin:0 auto}
 .logo{font-size:1.1rem;font-weight:700}.logo em{color:var(--accent2);font-style:normal}
 .nl{display:flex;gap:1.75rem;list-style:none}  /* nav links list */
-.nl a{font-size:.9rem;color:var(--muted);transition:color .2s}.nl a:hover{color:var(--text)}
+.nl a{font-size:1rem;color:var(--muted);transition:color .2s}.nl a:hover{color:var(--text)}
 .nr{display:flex;align-items:center;gap:.75rem}  /* nav right (theme btn + CTA) */
 /* .bcta — primary "Book a consult" button in the nav */
 .bcta{background:var(--accent);color:#fff;border:none;padding:.5rem 1.1rem;
-  border-radius:8px;font-size:.875rem;font-weight:600;cursor:pointer;transition:background .2s}
+  border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;transition:background .2s}
 .bcta:hover{background:var(--btnhov)}
 .tbtn{background:none;border:1px solid var(--border);border-radius:8px;  /* theme toggle btn */
-  padding:.45rem .65rem;cursor:pointer;color:var(--muted);font-size:.9rem;
+  padding:.45rem .65rem;cursor:pointer;color:var(--muted);font-size:1rem;
   transition:border-color .2s}.tbtn:hover{border-color:var(--muted);color:var(--text)}
 .ham{display:none;background:none;border:none;cursor:pointer;color:var(--text);font-size:1.4rem}  /* hamburger — hidden on desktop, shown ≤768 px */
 /* .mm — mobile dropdown menu; toggled by JS via .open class */
@@ -75,20 +78,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;
 /* .hbadge — pill eyebrow label above the H1 */
 .hbadge{display:inline-block;background:var(--badge-bg);color:var(--badge-text);
   border:1px solid rgba(124,58,237,.3);border-radius:20px;padding:.3rem .9rem;
-  font-size:.78rem;font-weight:600;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:.04em}
+  font-size:.9rem;font-weight:600;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:.04em}
 /* clamp() fluid font — shrinks gracefully on small screens */
-.hero h1{font-size:clamp(1.9rem,5vw,3.3rem);font-weight:800;line-height:1.15;
+.hero h1{font-size:clamp(2.1rem,5.5vw,3.6rem);font-weight:800;line-height:1.15;
   margin-bottom:1.2rem;letter-spacing:-.02em;max-width:800px;margin-left:auto;margin-right:auto}
 .hero h1 em{color:var(--accent2);font-style:normal}
-.hero>div>p{font-size:1.05rem;color:var(--muted);max-width:600px;margin:0 auto 2.2rem}
+.hero>div>p{font-size:1.2rem;color:var(--muted);max-width:600px;margin:0 auto 2.2rem}
 /* .hctas — hero CTA row (primary + outline buttons) */
 .hctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem}
 .bp{background:var(--accent);color:#fff;padding:.75rem 1.6rem;border-radius:10px;  /* .bp = button primary */
-  font-weight:700;font-size:.95rem;border:none;cursor:pointer;
+  font-weight:700;font-size:1.08rem;border:none;cursor:pointer;
   transition:background .2s,transform .15s;display:inline-block}
 .bp:hover{background:var(--btnhov);transform:translateY(-1px)}
 .bo{background:transparent;color:var(--text);padding:.75rem 1.6rem;border-radius:10px;  /* .bo = button outline */
-  font-weight:600;font-size:.95rem;border:1px solid rgba(255,255,255,.2);
+  font-weight:600;font-size:1.08rem;border:1px solid rgba(255,255,255,.2);
   cursor:pointer;transition:border-color .2s;display:inline-block}
 .bo:hover{border-color:var(--accent2)}
 [data-theme="light"] .bo{border-color:rgba(0,0,0,.18)}
@@ -96,8 +99,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;
 .sg{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:750px;margin:0 auto}
 .st{background:var(--stat-bg);border:1px solid var(--border);border-radius:12px;
   padding:1rem .75rem;text-align:center}
-.st-n{font-size:1.7rem;font-weight:800;color:var(--accent2);line-height:1}  /* stat number */
-.st-l{font-size:.73rem;color:var(--muted);margin-top:.3rem}  /* stat label */
+.st-n{font-size:1.9rem;font-weight:800;color:var(--accent2);line-height:1}  /* stat number */
+.st-l{font-size:.88rem;color:var(--muted);margin-top:.3rem}  /* stat label */
 /* === TICKER ===
    Seamless infinite scroll: the HTML content is duplicated so the strip
    can translateX(-50%) and loop invisibly back to start. */
@@ -105,7 +108,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;
   border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .ti{display:flex;width:max-content;animation:tick 28s linear infinite}  /* .ti — scrolling inner strip */
 .tw:hover .ti{animation-play-state:paused}  /* pause on hover so users can read */
-.ti span{padding:0 1.5rem;color:var(--ticker-text);font-size:.8rem;font-weight:500;white-space:nowrap}
+.ti span{padding:0 1.5rem;color:var(--ticker-text);font-size:.95rem;font-weight:500;white-space:nowrap}
 .ti .d{color:var(--accent)}  /* .d — decorative dot separator */
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 /* === SECTIONS ===
@@ -113,12 +116,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;
    as an inline style on the element to create a zebra-stripe effect. */
 section{padding:5rem 0}
 /* .stag — small uppercase eyebrow label above the section title */
-.stag{display:inline-block;font-size:.74rem;font-weight:700;color:var(--accent2);
+.stag{display:inline-block;font-size:.88rem;font-weight:700;color:var(--accent2);
   text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem}
 /* .stit — fluid section heading */
-.stit{font-size:clamp(1.55rem,3vw,2.25rem);font-weight:800;margin-bottom:.75rem;letter-spacing:-.02em}
+.stit{font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:800;margin-bottom:.75rem;letter-spacing:-.02em}
 /* .ssub — section subtitle / intro paragraph */
-.ssub{color:var(--muted);max-width:580px;font-size:.97rem;margin-bottom:3rem}
+.ssub{color:var(--muted);max-width:580px;font-size:1.1rem;margin-bottom:3rem}
 
 /* === CARDS ===
    .grid5 — 5-column auto-fit grid used in the Services section */
@@ -129,27 +132,27 @@ section{padding:5rem 0}
 /* .ci — small icon container inside a card */
 .ci{width:42px;height:42px;border-radius:10px;background:var(--badge-bg);
   display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.25rem}
-.card h3{font-size:.98rem;font-weight:700;margin-bottom:.4rem}
-.card p{font-size:.82rem;color:var(--muted);margin-bottom:.8rem;line-height:1.55}
+.card h3{font-size:1.1rem;font-weight:700;margin-bottom:.4rem}
+.card p{font-size:.97rem;color:var(--muted);margin-bottom:.8rem;line-height:1.6}
 /* .tags/.tag — technology/feature pill labels at the bottom of cards */
 .tags{display:flex;flex-wrap:wrap;gap:.3rem}
 .tag{background:var(--badge-bg);color:var(--badge-text);border-radius:6px;
-  padding:.18rem .52rem;font-size:.71rem;font-weight:600}
+  padding:.18rem .52rem;font-size:.84rem;font-weight:600}
 /* .nb — "New" badge appended inline to a card title */
 .nb{background:var(--accent);color:#fff;border-radius:6px;
-  padding:.14rem .48rem;font-size:.68rem;font-weight:700;margin-left:.3rem}
+  padding:.14rem .48rem;font-size:.82rem;font-weight:700;margin-left:.3rem}
 
 /* === AI SECTION ===
    .ag — 3-col summary stats above the AI capability cards */
 .ag{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:3rem}
 .as{background:var(--stat-bg);border:1px solid var(--border);border-radius:12px;
   padding:1.2rem;text-align:center}
-.as-n{font-size:1.35rem;font-weight:800;color:var(--accent2)}  /* AI stat value */
-.as-l{font-size:.78rem;color:var(--muted);margin-top:.3rem}  /* AI stat label */
+.as-n{font-size:1.55rem;font-weight:800;color:var(--accent2)}  /* AI stat value */
+.as-l{font-size:.93rem;color:var(--muted);margin-top:.3rem}  /* AI stat label */
 /* .ai6 — 6-card AI capability grid (auto-fit, min 215 px) */
 .ai6{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1.25rem}
 .aic ul{list-style:none;margin-top:.7rem}  /* .aic — AI capability card with bullet list */
-.aic ul li{font-size:.79rem;color:var(--muted);padding:.18rem 0;display:flex;gap:.4rem}
+.aic ul li{font-size:.95rem;color:var(--muted);padding:.18rem 0;display:flex;gap:.4rem}
 .aic ul li::before{content:"✓";color:var(--accent2);font-weight:700;flex-shrink:0}
 .actas{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap}  /* AI section CTA buttons */
 
@@ -157,24 +160,24 @@ section{padding:5rem 0}
    Two-column grid: "AI Partner Path" on the left, "AI Product Dev Path" on the right */
 .pg{display:grid;grid-template-columns:1fr 1fr;gap:2rem}  /* process grid */
 .path{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem}
-.path h3{font-size:1.02rem;font-weight:800;margin-bottom:.25rem}
-.psub{font-size:.8rem;color:var(--muted);margin-bottom:1.2rem}  /* path subtitle */
+.path h3{font-size:1.18rem;font-weight:800;margin-bottom:.25rem}
+.psub{font-size:.95rem;color:var(--muted);margin-bottom:1.2rem}  /* path subtitle */
 .path ul{list-style:none;margin-bottom:1.4rem}
-.path ul li{font-size:.81rem;color:var(--muted);padding:.18rem 0;display:flex;gap:.5rem}
+.path ul li{font-size:.97rem;color:var(--muted);padding:.18rem 0;display:flex;gap:.5rem}
 .path ul li::before{content:"·";color:var(--accent2);font-weight:900}
 .steps{display:flex;flex-direction:column;gap:.7rem}
 .step{display:flex;gap:1rem;align-items:flex-start}
 /* .snum — numbered step badge (e.g. "01", "02") */
-.snum{min-width:35px;height:35px;border-radius:10px;background:var(--badge-bg);
+.snum{min-width:38px;height:38px;border-radius:10px;background:var(--badge-bg);
   color:var(--accent2);display:flex;align-items:center;justify-content:center;
-  font-size:.72rem;font-weight:800;border:1px solid rgba(124,58,237,.25);flex-shrink:0}
-.sc h4{font-size:.86rem;font-weight:700;margin-bottom:.12rem}  /* step content heading */
-.sc p{font-size:.77rem;color:var(--muted)}
+  font-size:.86rem;font-weight:800;border:1px solid rgba(124,58,237,.25);flex-shrink:0}
+.sc h4{font-size:1rem;font-weight:700;margin-bottom:.12rem}  /* step content heading */
+.sc p{font-size:.93rem;color:var(--muted)}
 
 /* === WHY / PRICING / TESTIMONIALS === */
 /* .wg/.wn — "Why webz.au" card grid and large faint ordinal number decoration */
 .wg{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1.25rem}
-.wn{font-size:1.75rem;font-weight:900;color:var(--accent2);opacity:.4;line-height:1;margin-bottom:.5rem}
+.wn{font-size:2rem;font-weight:900;color:var(--accent2);opacity:.4;line-height:1;margin-bottom:.5rem}
 /* .prig/.pric — pricing grid and individual card; .pop adds accent border for featured card */
 .prig{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1.25rem}
 .pric{background:var(--card);border:1px solid var(--border);border-radius:20px;
@@ -184,52 +187,52 @@ section{padding:5rem 0}
 /* .pbadge — floated pill above the popular card (positioned absolute, top:-13px) */
 .pbadge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);
   background:var(--accent);color:#fff;border-radius:20px;padding:.23rem .85rem;
-  font-size:.7rem;font-weight:700;white-space:nowrap}
-.ptag{font-size:.73rem;color:var(--muted);margin-bottom:.3rem;font-weight:600}  /* pricing tier label */
-.price{font-size:2.1rem;font-weight:900;line-height:1}
-.price span{font-size:.88rem;color:var(--muted);font-weight:400}
-.pric>p{font-size:.8rem;color:var(--muted);margin:.6rem 0 1rem}
+  font-size:.84rem;font-weight:700;white-space:nowrap}
+.ptag{font-size:.88rem;color:var(--muted);margin-bottom:.3rem;font-weight:600}  /* pricing tier label */
+.price{font-size:2.4rem;font-weight:900;line-height:1}
+.price span{font-size:1rem;color:var(--muted);font-weight:400}
+.pric>p{font-size:.97rem;color:var(--muted);margin:.6rem 0 1rem}
 /* .pf — pricing feature list with ✓ pseudo-element bullets */
 .pf{list-style:none;margin-bottom:1.5rem}
-.pf li{font-size:.81rem;color:var(--muted);padding:.28rem 0;
+.pf li{font-size:.97rem;color:var(--muted);padding:.28rem 0;
   border-bottom:1px solid var(--border);display:flex;gap:.5rem}
 .pf li:last-child{border-bottom:none}
 .pf li::before{content:"✓";color:var(--accent2);font-weight:700;flex-shrink:0}
 /* .bprice — ghost CTA button; fills accent on hover OR when inside a .pop card */
 .bprice{width:100%;background:var(--badge-bg);color:var(--accent2);
   border:1px solid rgba(124,58,237,.3);border-radius:10px;padding:.68rem;
-  font-weight:700;font-size:.88rem;cursor:pointer;transition:background .2s}
+  font-weight:700;font-size:1.02rem;cursor:pointer;transition:background .2s}
 .bprice:hover,.pric.pop .bprice{background:var(--accent);color:#fff;border-color:var(--accent)}
 /* .tg/.tc/.ta — testimonials grid, card, and author attribution */
 .tg{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:1.25rem}
 .tc{background:var(--quote-bg);border:1px solid var(--border);border-radius:16px;padding:1.5rem}
 .stars{color:#f59e0b;margin-bottom:.75rem}
-.tc blockquote{font-size:.88rem;font-style:italic;margin-bottom:1rem;line-height:1.6}
-.ta strong{display:block;font-weight:600}.ta span{font-size:.78rem;color:var(--muted)}
+.tc blockquote{font-size:1.02rem;font-style:italic;margin-bottom:1rem;line-height:1.7}
+.ta strong{display:block;font-weight:600}.ta span{font-size:.93rem;color:var(--muted)}
 /* === CONTACT ===
    Two-column layout: 1fr info column on the left, 1.5fr Bigin form embed on the right */
 .csg{display:grid;grid-template-columns:1fr 1.5fr;gap:3rem;align-items:flex-start}
-.ci2 h2{font-size:1.55rem;font-weight:800;margin-bottom:.75rem}  /* .ci2 — contact info column */
-.ci2>p{color:var(--muted);margin-bottom:2rem;font-size:.93rem}
+.ci2 h2{font-size:1.75rem;font-weight:800;margin-bottom:.75rem}  /* .ci2 — contact info column */
+.ci2>p{color:var(--muted);margin-bottom:2rem;font-size:1.08rem}
 /* .cd/.cico — each contact detail row (icon + text) */
 .cd{display:flex;gap:.75rem;align-items:flex-start;margin-bottom:1rem}
-.cico{width:36px;height:36px;border-radius:9px;background:var(--badge-bg);
-  display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.cico{width:40px;height:40px;border-radius:9px;background:var(--badge-bg);
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
 .cd strong{display:block;font-weight:600;margin-bottom:.1rem}
-.cd span{font-size:.85rem;color:var(--muted)}
+.cd span{font-size:1rem;color:var(--muted)}
 /* .fw — form wrapper card (NOTE: the actual contact form is the Bigin embed, not native HTML fields) */
 .fw{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem}
 /* .fg/.fr — form group (label + input) and two-column form row */
 .fg{margin-bottom:1rem}
-.fg label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:.33rem;font-weight:500}
+.fg label{display:block;font-size:.95rem;color:var(--muted);margin-bottom:.33rem;font-weight:500}
 .fg input,.fg select,.fg textarea{width:100%;background:var(--input-bg);
   border:1px solid var(--input-border);border-radius:9px;padding:.63rem .88rem;
-  color:var(--text);font-size:.88rem;font-family:inherit;outline:none;transition:border-color .2s}
+  color:var(--text);font-size:1rem;font-family:inherit;outline:none;transition:border-color .2s}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--accent2)}
 .fg textarea{resize:vertical;min-height:100px}
 .fr{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .bsub{width:100%;background:var(--accent);color:#fff;border:none;border-radius:10px;
-  padding:.78rem;font-size:.97rem;font-weight:700;cursor:pointer;
+  padding:.78rem;font-size:1.1rem;font-weight:700;cursor:pointer;
   transition:background .2s;margin-top:.5rem}
 .bsub:hover{background:var(--btnhov)}
 /* .fok — success message shown after form submission (hidden by default) */
@@ -243,17 +246,34 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 1.
   justify-content:space-between;flex-wrap:wrap;gap:1rem}
 .fl{font-size:1.05rem;font-weight:800}.fl em{color:var(--accent2);font-style:normal}  /* .fl = footer logo */
 .flinks{display:flex;gap:1.5rem}
-.flinks a{font-size:.83rem;color:var(--muted);transition:color .2s}.flinks a:hover{color:var(--text)}
-.fcp{font-size:.76rem;color:var(--muted);width:100%;text-align:center;margin-top:.5rem}  /* .fcp = footer copyright paragraph */
+.flinks a{font-size:.97rem;color:var(--muted);transition:color .2s}.flinks a:hover{color:var(--text)}
+.fcp{font-size:.9rem;color:var(--muted);width:100%;text-align:center;margin-top:.5rem}  /* .fcp = footer copyright paragraph */
 
 /* === RESPONSIVE ===
    ≤768 px: swap desktop nav for hamburger; collapse multi-col grids to single column */
 @media(max-width:768px){
   .nl{display:none!important}.ham{display:block!important}
-  .hero h1{font-size:1.85rem}.sg{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:2.1rem}.sg{grid-template-columns:repeat(2,1fr)}
   .pg,.csg{grid-template-columns:1fr}.ag{grid-template-columns:1fr}.fr{grid-template-columns:1fr}
   .fi{flex-direction:column;text-align:center}.flinks{justify-content:center}
 }
+/* === DARK MODE HEADING COLOURS ===
+   Pure white headings on near-black backgrounds look flat and blend together.
+   A bright lavender (#ddd6fe) keeps contrast high while making headings
+   visually distinct from body text and on-brand with the purple accent. */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] .stit,
+[data-theme="dark"] .path h3,
+[data-theme="dark"] .ci2 h2 {
+  color: #ddd6fe;
+}
+
+/* === BIGIN ROOT FONT-SIZE FIX ===
+   The Bigin embed's bundled CSS sets :root/html { font-size:10px } which
+   shrinks every rem-based size on the page. This !important override restores
+   the standard 16 px root so all our rem values render at intended sizes. */
+html{font-size:16px!important}
 
 /* === BIGIN FORM DARK MODE ===
    Zoho Bigin embeds its own light-mode stylesheet; these overrides force the form
@@ -316,7 +336,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 1.
 <!-- NAV -->
 <nav>
   <div class="ni">
-    <a href="#" class="logo"><em>w</em> webz.au</a>
+    <!-- Logo: using the provided brand image.
+         height="48" lets it scale proportionally in the fixed nav bar. -->
+    <a href="#" class="logo" style="display:flex;align-items:center;line-height:1">
+      <img src="assets/webz-logo.png"
+           alt="Webz.au — Your Technology Partner"
+           height="48"
+           style="display:block;width:auto"/>
+    </a>
     <ul class="nl">
       <li><a href="#services">Services</a></li><li><a href="#ai">AI</a></li>
       <li><a href="#process">Process</a></li><li><a href="#pricing">Pricing</a></li>
@@ -2136,7 +2163,9 @@ input[type='file']::file-selector-button, input[type='file']::-webkit-file-uploa
 <!-- FOOTER -->
 <footer>
   <div class="fi">
-    <div class="fl"><em>w</em> webz.au</div>
+    <div class="fl">
+      <img src="assets/webz-logo.png" alt="Webz.au" height="36" style="display:block;width:auto"/>
+    </div>
     <div class="flinks"><a href="#services">Services</a><a href="#ai">AI</a><a href="#contact">Contact</a></div>
     <div class="fcp">© 2026 webz.au — Sydney, NSW, Australia. ABN: 68 373 312 952</div>
   </div>
