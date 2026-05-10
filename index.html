@@ -190,7 +190,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 1.
 </style>
 
 <!-- Zoho bookings --> 
-</style>
 <script src="https://bookings.nimbuspop.com/assets/embed.js"></script>
 </head>
 
@@ -463,26 +462,28 @@ function submitF(e){
   }catch(e){}
 })();
 
-/* ── Zoho Bookings modal (shared URL for all buttons) ── */
-var bookingOpts = {
-  url: "https://webzyourtechpartner.zohobookings.com.au/portal-embed#/32604000000051054",
-  width: "90%",
-  height: "85%"
-};
 
-var bookingIds = [
-  'nav-book',
-  'hero-book',
-  'ai-book',
-  'price-book-1',
-  'price-book-2',
-  'price-book-3' 
-];
-
-bookingIds.forEach(function(id){
-  var el = document.getElementById(id);
-  if(el) el.onclick = Bookings.linkModal(bookingOpts);
+/* ── Zoho Bookings modal ── */
+window.addEventListener('load', function(){
+  var bookingOpts = {
+    url: "https://webzyourtechpartner.zohobookings.com.au/portal-embed#/32604000000051054",
+    width: "90%",
+    height: "85%"
+  };
+  var bookingIds = [
+    'nav-book',
+    'hero-book',
+    'ai-book',
+    'price-book-1',
+    'price-book-2',
+    'price-book-3'
+  ];
+  bookingIds.forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.onclick = Bookings.linkModal(bookingOpts);
+  });
 });
+
 </script>
 
 </body>
