@@ -413,7 +413,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 1.
         <div class="cd"><div class="cico">📍</div><div><strong>Location</strong><span>Sydney, NSW, Australia</span></div></div>
         <div class="cd"><div class="cico">🕐</div><div><strong>Hours</strong><span>Mon–Fri 8am–6pm AEST</span></div></div>
       </div>
-      <div class="fw">
+      <!-- <div class="fw">
         <form onsubmit="submitF(event)">
           <div class="fr">
             <div class="fg"><label>Your name</label><input type="text" required placeholder="Jane Smith"/></div>
@@ -434,7 +434,17 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 1.
           <button class="bsub" type="submit">Send message →</button>
           <div class="fok" id="fok">✅ Message sent! We'll be in touch within one business day.</div>
         </form>
-      </div>
+      </div> -->
+      <!-- Bigin form -->
+      <div class="fw" style="padding:0;overflow:hidden;border-radius:20px;">
+        <iframe 
+          width="100%" 
+          height="590px" 
+          src="https://au.bigin.online/org7006317734/forms/contact-us"
+          frameborder="0"
+          style="border:none;display:block;">
+        </iframe>
+    </div>
     </div>
   </div>
 </section>
@@ -448,7 +458,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 1.
   </div>
 </footer>
 
-<!----
+<!--
 <script>
 function toggleTheme(){
   var h=document.documentElement,d=h.getAttribute('data-theme')==='dark';
@@ -462,7 +472,7 @@ function submitF(e){
   e.preventDefault();
   var s=document.getElementById('fok');s.style.display='block';e.target.reset();
   setTimeout(function(){s.style.display='none';},5000);
-}
+} 
 (function(){
   try{
     var sv=localStorage.getItem('wt'),dk=window.matchMedia('(prefers-color-scheme:dark)').matches;
@@ -484,11 +494,12 @@ function toggleTheme(){
 }
 function toggleMenu(){document.getElementById('mm').classList.toggle('open');}
 function closeMM(){document.getElementById('mm').classList.remove('open');}
+/* 
 function submitF(e){
   e.preventDefault();
   var s=document.getElementById('fok');s.style.display='block';e.target.reset();
   setTimeout(function(){s.style.display='none';},5000);
-}
+} */ 
 (function(){
   try{
     var sv=localStorage.getItem('wt'),dk=window.matchMedia('(prefers-color-scheme:dark)').matches;
